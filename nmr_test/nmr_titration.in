@@ -1,0 +1,113 @@
+# Input file to annoate data on a plate for PyPexAlpha
+# use tab to separate columns!
+
+VARS
+DATA_FILE	HAS_HEADER
+test/nmr_titration.csv	yes
+@VARS
+
+VARS
+TABLE_INDEX
+0
+@VARS
+
+VARS
+OUTPUT_DIR
+test
+@VARS
+
+VARS
+ROW1	ROW_VAL1
+A	A343
+B	D344
+C	E345
+D	T346
+E	E348
+F	S384
+G	R394
+H	K395
+I	G396
+J	L431
+@VARS
+
+VARS
+COL1	COL_VAL1
+1	0
+2	0.5
+3	1
+4	2
+5	3
+6	4
+7	5
+8	6
+9	7
+10	8
+@VARS
+
+# select if row or column is the independent variable (X), LABEL means the data/condition name
+VARS
+X	LABEL
+COL	ROW
+@VARS
+
+# set row, column or well that should be not used in data set
+VARS
+IGNORE_ROW	IGNORE_COL	IGNORE_WELL
+
+@VARS
+
+# set data points that are not considered for fitting
+# enter a column value (e.g. 0.1) to ignore all column values, a row value (e.g. cmpd_xy) to ignore all row values or a data point (e.g. 0.1,cmpd_xy).
+# use semicolon to specify a data point (e.g. col_val;row_val)
+VARS
+DONT_FIT_COL_VAL	DONT_FIT_ROW_VAL	DONT_FIT_DATA_POINT
+
+@VARS
+
+# PLOTTING
+# Input to specify paramters for plotter for PyPexAlpha
+# use tab to separate columns!
+ 
+VARS
+FIT_EXPRESSION	FIT_X	FIT_OPT	FIT_OPT_PARA
+t + (b - t) * x**n / (k**n + x**n)	x	no	k
+@VARS
+
+VARS
+FIT_PARAS	FIT_PARAS_INIT	FIT_FIXED	FIT_BOUNDS	FIT_PRINT
+t	0.5	no	0;10000000	no
+b	0	no	0;10000000	no
+n	1	yes	0;10	no
+k	0.01	no	0;10000000	yes
+@VARS
+
+VARS
+REMOVE_LAST_N_POINTS
+1
+@VARS
+
+VARS
+X_LABEL	Y_LABEL
+$\frac{ligand}{protein}$	$CSP\ (ppm)$
+@VARS
+
+VARS
+MARKER	MARKER_COLOR	MARKER_SIZE	LINE_COLOR	LINE_STYLE	LINE_WIDTH
+s	black	2.5	blue	-	1
+@VARS
+
+VARS
+X_LIM	Y_LIM	Y_EXPONENT
+0.1;10	0;0.5	0
+@VARS
+
+VARS
+FIG_HEIGHT	FIG_WIDTH
+25	4
+@VARS
+
+VARS
+TEXT_X	TEXT_Y
+0.2	0.05
+@VARS
+

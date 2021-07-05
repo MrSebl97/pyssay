@@ -53,7 +53,7 @@ def fit(callable, x_data, y_data, init_paras, sigma=None, method='trf', maxfev=1
     """
 
     # calculates curve fit
-    paras, cov = curve_fit(callable, x_data, y_data, init_paras, sigma=sigma, method=method, maxfev=maxfev, bounds=bounds)
+    paras, cov = curve_fit(callable, x_data, y_data, init_paras, sigma=None, method=method, maxfev=maxfev, bounds=bounds)
     # calculates standard deviation from covariances
     paras_std = numpy.sqrt(numpy.diag(cov))
 

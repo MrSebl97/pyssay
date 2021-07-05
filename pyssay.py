@@ -1,6 +1,18 @@
+import sys
+
+
+if 'numpy' not in sys.modules:
+    print("The python module 'numpy' must to be installed to run pyssay!")
+if 'matplotlib' not in sys.modules:
+    print("The python module 'matplotlib' must to be installed to run pyssay!")
+if 'scipy' not in sys.modules:
+    print("The python module 'scipy' must to be installed to run pyssay!")
+
+
 import parser
 import plotter
 import sys
+
 
 if __name__ == '__main__':
 
@@ -13,6 +25,7 @@ if __name__ == '__main__':
 
     # create plate
     plate = parser.Plate(in_file)
+
     # create plotter
     plotter = plotter.Plotter(plate, in_file)
 
