@@ -1,0 +1,181 @@
+# -------------------------------------------------
+# Input file to annotate data on a plate for pyssay
+# -------------------------------------------------
+# 
+# use tab to separate columns!
+
+# ----------------------------
+# change the parameters below!
+# ----------------------------
+
+VARS
+DATA_FILE	HAS_HEADER	TABLE_INDEX
+20210621/20210621_Plate5_PMF5-MM035_a_TB.csv	yes	1
+@VARS
+
+VARS
+OUTPUT_DIR
+20210621
+@VARS
+
+VARS
+ROW1	ROW_VAL1
+A	DOL008
+B	DOL008
+@VARS
+
+VARS
+COL1	COL_VAL1
+1	0.01
+2	0.01
+3	0.292969
+4	0.292969
+5	0.585938
+6	0.585938
+7	1.171875
+8	1.171875
+9	2.34375
+10	2.34375
+11	4.6875
+12	4.6875
+13	9.375
+14	9.375
+15	18.75
+16	18.75
+17	37.5
+18	37.5
+19	75
+20	75
+21	150
+22	150
+23	300
+24	300
+@VARS
+
+VARS
+ROW2	ROW_VAL2
+C	PMF5
+D	PMF5
+E	PMF6
+F	PMF6
+G	PMF7
+H	PMF7
+I	MDMM018R
+J	MDMM018R
+K	MDMM019R
+L	MDMM019R
+M	MDMM024
+N	MDMM024
+O	MM035_A
+P	MM035_A
+@VARS
+
+VARS
+COL2	COL_VAL2
+1	0.01
+2	0.01
+3	0.585938
+4	0.585938
+5	1.171875
+6	1.171875	
+7	2.34375	
+8	2.34375		
+9	4.6875		
+10	4.6875	
+11	9.375
+12	9.375		
+13	18.75
+14	18.75	
+15	37.5
+16	37.5
+17	75
+18	75
+19	150	
+20	150	
+21	300		
+22	300		
+23	600		
+24	600
+@VARS
+
+VARS
+FIG_HEIGHT	FIG_WIDTH
+20	4
+@VARS
+
+VARS
+MARKER	MARKER_COLOR	MARKER_SIZE	LINE_COLOR	LINE_STYLE	LINE_WIDTH
+s	black	2.5	blue	-	1
+@VARS
+
+VARS
+X_LIM	Y_LIM	Y_EXPONENT
+0.1;1000	0;4	5
+@VARS
+
+VARS
+TEXT_X	TEXT_Y
+0.2	1.0
+@VARS
+
+
+# ------------------------------------------------------------------------
+# the following paramters are default settings that have not to be changed
+# ------------------------------------------------------------------------
+
+# select if row or column is the independent variable (X), LABEL means the data/condition name
+VARS
+X	LABEL
+COL	ROW
+@VARS
+
+# set row, column or well that should be not used in data set
+VARS
+IGNORE_ROW	IGNORE_COL	IGNORE_WELL
+A
+@VARS
+
+# set data points that are not considered for fitting
+# enter a column value (e.g. 0.1) to ignore all column values, a row value (e.g. cmpd_xy) to ignore all row values or a data point (e.g. 0.1,cmpd_xy).
+# use semicolon to specify a data point (e.g. col_val;row_val)
+VARS
+DONT_FIT_COL_VAL	DONT_FIT_ROW_VAL	DONT_FIT_DATA_POINT
+		0.01;PMF5
+		0.585938;PMF5
+		1.171875;PMF5	
+		2.34375;PMF5
+		4.6875;PMF5
+		0.01;PMF6
+		0.585938;PMF6
+		1.171875;PMF6
+		2.34375;PMF6
+		4.6875;PMF6
+		0.01;PMF7
+		0.585938;PMF7
+		1.171875;PMF7
+		2.34375;PMF7
+		4.6875;PMF7
+@VARS
+
+VARS
+FIT_EXPRESSION	FIT_X	FIT_OPT	FIT_OPT_PARA
+t + (b - t) * x**n / (k**n + x**n)	x	yes	k
+@VARS
+
+VARS
+FIT_PARAS	FIT_PARAS_INIT	FIT_FIXED	FIT_BOUNDS	FIT_PRINT
+t	40000	no	0;100000000	no
+b	0	yes	0;1000	no
+n	1	no	0.9;1.1	yes
+k	100	no	0;100000	yes
+@VARS
+
+VARS
+REMOVE_LAST_N_POINTS
+4
+@VARS
+
+VARS
+X_LABEL	Y_LABEL
+$log(compound\ concentration)\ (\mu M)$	$Intensity\ (A.U.)$
+@VARS
