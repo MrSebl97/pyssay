@@ -250,8 +250,11 @@ class Plotter:
 
         for label, ax in zip(self._plate.labels(), axs):
             x = self._plate.fit_x(label)
+            x_all = self._plate.x(label)
             y = self._plate.fit_y(label)
+            y_all = self._plate.y(label)
             y_std = self._plate.fit_y_std(label)
+            y_std_all = self._plate.y_std(label)
 
             fit_x = self._fit_dict[label][4]
             fit_y = self._fit_dict[label][5]
@@ -283,7 +286,7 @@ class Plotter:
             ax.set_xscale('log')
 
             y_factor = 10.0 ** yexp
-            ax.errorbar(x, numpy.array(y) / y_factor, numpy.array(y_std) / y_factor, linestyle='', capsize=3, color=marker_color, markersize=marker_size, marker=marker, alpha=0.25)
+            ax.errorbar(x_all, numpy.array(y_all) / y_factor, numpy.array(y_std_all) / y_factor, linestyle='', capsize=3, color=marker_color, markersize=marker_size, marker=marker, alpha=0.25)
             ax.errorbar(fit_x, numpy.array(fit_y) / y_factor, numpy.array(fit_y_std) / y_factor, linestyle='', capsize=3,
                         color=marker_color, markersize=marker_size, marker=marker)
 

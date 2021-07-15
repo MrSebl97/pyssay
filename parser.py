@@ -285,7 +285,8 @@ class Plate():
 
         # extract data from plate like described in the input file
         data_dict = {}
-
+        # c_val = concentration, row_val Compound
+        # data_dict = {concentration : {cmpd1:[[value1,..value4], [value1,...,value4]]}}
         # initiate data_dict
         for s in range(1, 10):
             col_val_key = FILE_IN_COL_VAL + str(s)
@@ -323,9 +324,11 @@ class Plate():
 
         # dictionary with all x, y_mean and y_std data
         mean_data_dict = dict()
-
+        # mean_data_dict = {Cmpd : [mean_x_conc1,...], [mean_z_conc1,mean_x_conc2,...], [std x_conc1,...]}
         # dictionary with x, y_mean and y_std data for fitting
+
         mean_fit_data_dict = dict()
+        # mean_fitdata_dict = {Cmpd : [mean_x_conc1,...], [mean_z_conc1,mean_x_conc2,...], [std x_conc1,...]}
 
         for c_val in data_dict.keys():
 
